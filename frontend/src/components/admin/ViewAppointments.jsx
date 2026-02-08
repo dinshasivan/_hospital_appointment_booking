@@ -62,9 +62,9 @@ const ViewAppointments = () => {
                     <p className="text-gray-500">There are no appointments scheduled at the moment.</p>
                 </div>
             ) : (
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse">
-                        <thead>
+                <div className="overflow-x-auto max-h-[440px] overflow-y-auto no-scrollbar">
+                    <table className="w-full text-left border-collapse sticky-header">
+                        <thead className="sticky top-0 z-10 bg-gray-50 shadow-sm">
                             <tr className="bg-gray-50 border-b border-gray-100">
                                 <th className="px-6 py-4 font-semibold text-gray-600 text-sm tracking-wide">Patient Details</th>
                                 <th className="px-6 py-4 font-semibold text-gray-600 text-sm tracking-wide">Doctor Assigned</th>

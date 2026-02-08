@@ -105,9 +105,9 @@ const ViewDoctors = () => {
                     <p className="text-gray-500 text-lg">No doctors registered yet.</p>
                 </div>
             ) : (
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse">
-                        <thead>
+                <div className="overflow-x-auto max-h-[600px] overflow-y-auto no-scrollbar">
+                    <table className="w-full text-left border-collapse sticky-header">
+                        <thead className="sticky top-0 z-10 bg-gray-50 shadow-sm">
                             <tr className="bg-gray-50 border-b border-gray-100">
                                 <th className="px-6 py-4 font-semibold text-gray-600 text-sm tracking-wide">Doctor Name</th>
                                 <th className="px-6 py-4 font-semibold text-gray-600 text-sm tracking-wide">Specialization</th>

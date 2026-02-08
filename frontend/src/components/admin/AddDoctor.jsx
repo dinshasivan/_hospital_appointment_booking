@@ -115,7 +115,7 @@ const AddDoctor = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-4">
+                <div className="pt-2">
                     <button
                         type="submit"
                         className="w-full sm:w-auto bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-semibold flex items-center justify-center gap-2"

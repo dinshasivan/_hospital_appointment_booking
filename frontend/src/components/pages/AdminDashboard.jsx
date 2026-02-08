@@ -24,10 +24,8 @@ const AdminDashboard = () => {
 
     const fetchStats = async () => {
         try {
-            // We need to import getAdminStats. I'll add the import in a separate edit if needed, or assume I can do it here if I replace the top.
-            // Wait, I can't easily add imports with replace_file_content if I'm editing the body.
-            // I will use a separate edit for imports. For now, let's implement the logic.
-            const { getAdminStats } = await import('../service/api'); // Dynamic import to avoid breaking if top not updated yet
+
+            const { getAdminStats } = await import('../service/api'); 
             const response = await getAdminStats();
             if (response.data) {
                 setStats(response.data);
@@ -58,7 +56,7 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div className="flex h-[89vh] bg-gray-100">
+        <div className="flex h-[89vh] overflow-hidden bg-gray-100">
             {/* Sidebar */}
             <aside className="w-64 bg-blue-600 text-white flex flex-col">
                 {/* Admin Profile Section */}
@@ -148,12 +146,12 @@ const AdminDashboard = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1 p-3">
+            <main className="flex-1 p-3 overflow-y-auto no-scrollbar">
                 <div className="max-w-6xl mx-auto">
                     <h1 className="text-3xl font-bold text-gray-800 mb-6">Admin Dashboard</h1>
 
                     {/* Stats Grid - Persistent */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                         <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
                             <div className="flex items-center justify-between">
                                 <div>
