@@ -182,7 +182,7 @@ POST/api/auth/registe
 
 **Endpoint:** GET /api/appointment/doctor/view
 
-# 3. Update Appointment Status
+### 3. Update Appointment Status
 
 **Endpoint:** PATCH /api/appointment/updateStatus/:id
 ```bash
@@ -217,4 +217,12 @@ POST/api/auth/registe
 ### 4. Cancel Appointment
 
 **Endpoint:** PATCH /api/appointment/cancel/:id
+
+Frontend will run on: http://localhost:5173
+
+Backend will run on: http://localhost:5000
+
+
+
+
 
