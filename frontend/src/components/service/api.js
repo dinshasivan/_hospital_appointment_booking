@@ -37,16 +37,6 @@ export const updateStatus = (data) => apiClient.patch(`/appointments/updateStatu
 export const cancelAppointment = (data) => apiClient.patch(`/appointments/cancel/${data.appointmentId}`);
 // Add this function
 export const updateDoctorProfile = (doctorId, data) => apiClient.put('/doctor/profile', data); // doctorId is ignored, using token
-// Wait, backend uses req.user.id for PUT /profile. The route is /profile (no id).
-// Check backend doctor.js Step 23:
-// doctorRouter.put("/profile", ... async (req, res) => { ... await Doctor.findByIdAndUpdate(req.user.id...
-// WAIT. req.user.id is the User ID. Doctor model _id is different?
-// Step 23: Doctor.findByIdAndUpdate(req.user.id...
-// Doctor model: userId ref User.
-// If Doctor._id == User._id (manually set?) No.
-// This is a BUG in backend doctor.js line 14: Doctor.findByIdAndUpdate(req.user.id...)
-// It should be Doctor.findOneAndUpdate({ userId: req.user.id }...)
-// I must fix backend PUT /profile too.
 
 // In api.js:
 export const getDoctorProfile = () => apiClient.get('/doctor/profile');
