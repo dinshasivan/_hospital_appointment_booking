@@ -134,7 +134,7 @@ POST/api/auth/registe
 
 ```
 ###  👑 Admin APIs
-# 1. Add Doctors
+### 1. Add Doctors
 
 **Endpoint:**POST /api/admin/add-doctor
 
@@ -147,7 +147,7 @@ POST/api/auth/registe
     }
 ```
 
-# 2. View All Appointments
+### 2. View All Appointments
 
 **Endpoint:** GET /api/admin/appointments
 
@@ -162,7 +162,7 @@ POST/api/auth/registe
 
 ### 🧑‍⚕️ Doctor APIs
 
-# 1. Create / Update Doctor Profile
+### 1. Create / Update Doctor Profile
 
 
 **Endpoint:** GPUT /api/doctor/profile
@@ -178,7 +178,7 @@ POST/api/auth/registe
   "availableTimeSlots": ["09:00 AM", "09:30 AM", "10:00 AM"]
 }
 ```
-# 2. View Doctor Appointments
+### 2. View Doctor Appointments
 
 **Endpoint:** GET /api/appointment/doctor/view
 
@@ -193,11 +193,11 @@ POST/api/auth/registe
 
 ### 🧑‍🦱 Patient APIs
 
-# 1. View Available Doctors
+### 1. View Available Doctors
 
 **Endpoint:** GET /api/doctor/list
 
-# 2. Book Appointment
+### 2. Book Appointment
 
 **Endpoint:** POST /api/appointment/book
 
@@ -209,12 +209,12 @@ POST/api/auth/registe
     }
 ```
 
-# 3. View Available Doctors
+### 3. View Available Doctors
 
 **Endpoint:** GET /api/appointment/patient/view
 
 
-# 4. Cancel Appointment
+### 4. Cancel Appointment
 
 **Endpoint:** PATCH /api/appointment/cancel/:id
 
