@@ -28,7 +28,7 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 ## 👥 User Roles & Permissions
 
 ### 👑 Admin
-- Add doctors
+- Add doctors 
 - View all appointments
 
 ### 🧑‍⚕️ Doctor
@@ -95,7 +95,7 @@ To run the project locally, follow these steps:
     ```bash
     npm install
     ```
-3. Create ```bash .env ``` file in backed root
+3. Create ``` .env ``` file in backed root
 
 ```bash 
     PORT = 500
