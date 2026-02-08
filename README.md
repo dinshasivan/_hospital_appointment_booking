@@ -51,7 +51,7 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 Authentication is handled using JWT.  
 All protected routes require the token in the request header:
 
-# Admin Login Credentials
+**Admin Login Credentials**
 
 ```bash
 email : admin123@gmail.com
