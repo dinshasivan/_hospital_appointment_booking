@@ -222,7 +222,8 @@ Frontend will run on: http://localhost:5173
 
 Backend will run on: http://localhost:5000
 
-
+## 🎥 Demo Video 
+https://youtu.be/eO2cwwRLM5A
 
 
 
