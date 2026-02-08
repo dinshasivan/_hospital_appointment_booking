@@ -28,7 +28,7 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 ## 👥 User Roles & Permissions
 
 ### 👑 Admin
-- Add doctors
+- Add doctors 
 - View all appointments
 
 ### 🧑‍⚕️ Doctor
@@ -51,7 +51,7 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 Authentication is handled using JWT.  
 All protected routes require the token in the request header:
 
-# Admin Login Credentials
+**Admin Login Credentials**
 
 ```bash
 email : admin123@gmail.com
@@ -95,7 +95,7 @@ To run the project locally, follow these steps:
     ```bash
     npm install
     ```
-3. Create ```bash .env ``` file in backed root
+3. Create ``` .env ``` file in backed root
 
 ```bash 
     PORT = 500
@@ -134,7 +134,7 @@ POST/api/auth/registe
 
 ```
 ###  👑 Admin APIs
-# 1. Add Doctors
+### 1. Add Doctors
 
 **Endpoint:**POST /api/admin/add-doctor
 
@@ -147,7 +147,7 @@ POST/api/auth/registe
     }
 ```
 
-# 2. View All Appointments
+### 2. View All Appointments
 
 **Endpoint:** GET /api/admin/appointments
 
@@ -162,7 +162,7 @@ POST/api/auth/registe
 
 ### 🧑‍⚕️ Doctor APIs
 
-# 1. Create / Update Doctor Profile
+### 1. Create / Update Doctor Profile
 
 
 **Endpoint:** GPUT /api/doctor/profile
@@ -178,11 +178,11 @@ POST/api/auth/registe
   "availableTimeSlots": ["09:00 AM", "09:30 AM", "10:00 AM"]
 }
 ```
-# 2. View Doctor Appointments
+### 2. View Doctor Appointments
 
 **Endpoint:** GET /api/appointment/doctor/view
 
-# 3. Update Appointment Status
+### 3. Update Appointment Status
 
 **Endpoint:** PATCH /api/appointment/updateStatus/:id
 ```bash
@@ -193,11 +193,11 @@ POST/api/auth/registe
 
 ### 🧑‍🦱 Patient APIs
 
-# 1. View Available Doctors
+### 1. View Available Doctors
 
 **Endpoint:** GET /api/doctor/list
 
-# 2. Book Appointment
+### 2. Book Appointment
 
 **Endpoint:** POST /api/appointment/book
 
@@ -209,12 +209,20 @@ POST/api/auth/registe
     }
 ```
 
-# 3. View Available Doctors
+### 3. View Available Doctors
 
 **Endpoint:** GET /api/appointment/patient/view
 
 
-# 4. Cancel Appointment
+### 4. Cancel Appointment
 
 **Endpoint:** PATCH /api/appointment/cancel/:id
+
+Frontend will run on: http://localhost:5173
+
+Backend will run on: http://localhost:5000
+
+
+
+
 
