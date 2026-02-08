@@ -28,14 +28,14 @@ app.use("/api/appointments", appointmentRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/doctor", doctorRouter);
 
-
+ app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
+   
   })
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
