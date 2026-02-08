@@ -11,13 +11,14 @@ doctorRouter.put(
   allowRole("doctor"),
   async (req, res) => {
     try {
-      const updatedDoctor = await Doctor.findByIdAndUpdate(
-        req.user.id,
+      const updatedDoctor = await Doctor.findOneAndUpdate(
+        { userId: req.user.userId },
         {
           ...req.body,
-          isProfileCompleted: true
+          isProfileCompleted: true,
+          userId: req.user.userId // Ensure userId is set on creation
         },
-        { new: true, upsert: true }
+        { new: true, upsert: true, setDefaultsOnInsert: true }
       );
 
       return res.status(200).json({
@@ -30,13 +31,44 @@ doctorRouter.put(
   }
 );
 
+doctorRouter.get(
+  "/profile",
+  protect,
+  allowRole("doctor"),
+  async (req, res) => {
+    try {
+      const doctor = await Doctor.findOne({ userId: req.user.userId }).populate("userId", "name email");
+      if (!doctor) {
+        return res.status(404).json({ message: "Doctor profile not found" });
+      }
+      res.json(doctor);
+    } catch (error) {
+      return res.status(500).json({ message: "Internal server error" });
+    }
+  }
+);
+
 doctorRouter.get("/list", protect, async (req, res) => {
   try {
     const doctors = await Doctor.find()
       .populate("userId", "name email")
-      .select("specialization availableDays availableTimeSlots");
+      .select("userId specialization experience phone address availableDays availableTimeSlots");
 
-    res.json(doctors);
+    const formattedDoctors = doctors.map(doctor => ({
+      _id: doctor._id,
+      name: doctor.userId?.name || "Unknown",
+      email: doctor.userId?.email || "No email",
+      specialization: doctor.specialization,
+      experience: doctor.experience,
+      phone: doctor.phone,
+      address: doctor.address,
+      availableDays: doctor.availableDays || [],
+      availableTimeSlots: doctor.availableTimeSlots || [],
+      userId: doctor.userId // Keep original userId for reference
+    }));
+
+    res.json(formattedDoctors);
+
   } catch (error) {
     return res.status(500).json({ message: "Internal server error" });
   }

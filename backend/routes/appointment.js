@@ -29,7 +29,7 @@ appointmentRouter.post(
       }
 
       const appointment = await Appointment.create({
-        patient: req.user.id,
+        patient: req.user.userId,
         doctor: doctorId,
         date,
         time
@@ -52,19 +52,18 @@ appointmentRouter.get(
   async (req, res) => {
     try {
       const listAppointment = await Appointment.find({
-        patient: req.user.id,
-        status: { $in: ["Pending", "Accepted"] }
+        patient: req.user.userId
       }).populate("doctor", "name email");
 
       if (listAppointment.length === 0) {
         return res.status(200).json({
-          message: "No upcoming appointments",
+          message: "No appointments found",
           listAppointment: []
         });
       }
 
       return res.status(200).json({
-        message: "Upcoming Appointments",
+        message: "All Appointments",
         listAppointment
       });
     } catch (error) {
@@ -81,7 +80,7 @@ appointmentRouter.patch(
     try {
       const appointment = await Appointment.findOne({
         _id: req.params.id,
-        patient: req.user.id
+        patient: req.user.userId
       });
 
       if (!appointment) {
@@ -116,8 +115,8 @@ appointmentRouter.patch(
     try {
       const { status } = req.body;
 
-      const appointment = await Appointment.findByIdAndUpdate(
-        req.params.id,
+      const appointment = await Appointment.findOneAndUpdate(
+        { _id: req.params.id, doctor: req.user.userId },
         { status },
         { new: true }
       );
@@ -140,7 +139,7 @@ appointmentRouter.get(
   async (req, res) => {
     try {
       const appointments = await Appointment.find({
-        doctor: req.user.id
+        doctor: req.user.userId
       })
         .populate("patient", "name email")
         .sort({ date: 1, time: 1 });
@@ -148,7 +147,7 @@ appointmentRouter.get(
       if (appointments.length === 0) {
         return res.status(200).json({
           message: "No scheduled appointments",
-          listAppointment: []
+          appointments: []
         });
       }
 
