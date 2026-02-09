@@ -51,13 +51,6 @@ The Hospital Appointment Booking System is a full-stack web application that ena
 Authentication is handled using JWT.  
 All protected routes require the token in the request header:
 
-**Admin Login Credentials**
-
-```bash
-email : admin123@gmail.com
-password: adim123
-```
-
 ## Getting Started
 
 To run the project locally, follow these steps:
@@ -97,15 +90,15 @@ To run the project locally, follow these steps:
     ```
 3. Create ``` .env ``` file in backed root
 
-```bash 
+    ```bash 
     PORT = 500
     MONGO_URI=your_mongodb_connection_string
     JWT_SECRET=your_jwt_secret
-```
-4. Start the project:
-    ```bash
-    npm run dev
     ```
+4. Start the project:
+     ```bash
+    npm run dev
+     ```
 
 ### API Documentation
 ### Hospital Appointment Booking
@@ -218,12 +211,47 @@ POST/api/auth/registe
 
 **Endpoint:** PATCH /api/appointment/cancel/:id
 
-Frontend will run on: http://localhost:5173
+### Local Development URLs
 
-Backend will run on: http://localhost:5000
+**Frontend :** http://localhost:5173
 
-## 🎥 Demo Video 
-https://youtu.be/eO2cwwRLM5A
+**Backend :** http://localhost:5000
+
+
+## 🚀 Deployment
+
+### 🌐 Frontend
+
+**. Platform:** Netlify
+
+**. Live URL:** https://bespoke-starlight-94a774.netlify.app
+
+### ⚙️ Backend
+
+**. Platform:** Render
+
+**. API Base URL:** https://hospital-backend-2-3zi4.onrender.com
+
+### 📝 Deployment Note
+
+Frontend is hosted on Netlify and consumes APIs from the Render backend.
+
+Backend services are securely connected to MongoDB Atlas.
+
+Environment variables are managed securely on Render.
+
+### 🔑 Admin Login Credentials (For Demo)
+```bash
+email : admin123@gmail.com
+password: adim123
+```
+### 🔗 Useful Links
+
+**🌐 Live Application:** https://bespoke-starlight-94a774.netlify.app
+    
+**⚙️ Backend API:** https://hospital-backend-2-3zi4.onrender.com
+
+**🎥 Demo Video :** https://youtu.be/eO2cwwRLM5A
 
 
 
